@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "Birds",
+    "image": "https://i.ibb.co/wQdZnBx/bird.png"
+  },
+  {
+    "id": 2,
+    "name": "Cats",
+    "image": "https://i.ibb.co/b2Nq3Lj/cat.png"
+  },
+  {
+    "id": 3,
+    "name": "Dogs",
+    "image": "https://i.ibb.co/XVS0PBd/dog.png"
+  },
+  {
+    "id": 4,
+    "name": "Fishes",
+    "image": "https://i.ibb.co/QdgnhJq/fish.png"
+  },
+  {
+    "id": 5,
+    "name": "Rabbits",
+    "image": "https://i.ibb.co/NyJtL0C/rabbit.png"
+  },
+  {
+    "id": 6,
+    "name": "Turtles",
+    "image": "https://i.ibb.co/pXFLkpP/turtle.png"
+  },
+  {
+    "id": 7,
+    "name": "Others",
+    "image": "https://i.ibb.co/ZXmYxsZ/others.png"
+  }
+]

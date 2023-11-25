@@ -1,34 +1,32 @@
 const Footer = () => {
   return (
-    <div className="border-t-2 bg-black text-white py-16">
-      <footer className="footer p-10 container mx-auto">
-        <div className="flex flex-col text-left">
-          <h3 className="font-black text-xl">pawspalace</h3>
-          <p className="text-sm">Online pet adoptation</p>
-          <p className="text-xs">Your trusted partner</p>
-          <p className="flex flex-col text-left">
-            <small>All rights preserved by dr-fatiha</small>
-            <small>Copyright@2023</small>
-            <small>In support: Alien Coder</small>
-            <small>Agargaon, Dhaka, Bangladesh</small>
+    <footer className="border-t-2 bg-black text-white py-24 ">
+      <div className="grid grid-cols-1 md:grid-cols-3 p-10 container mx-auto">
+        <div className="flex flex-col text-left space-y-2">
+          <h3 className="font-bold text-xl">pawspalace</h3>
+          <p className="text-sm">Online pet adoptation shop</p>
+          <p className="text-xs">Your trusted place</p>
+          <p className="flex flex-col space-y-1 text-left text-xs">
+            <small>Block - C, Aftabnagar, Dhaka, Bangladesh</small>
+            <small>Phone: +22 076 554</small>
           </p>
         </div>
-        <nav>
-          <header className="footer-title">Services</header>
-          <a className="link link-hover">Branding</a>
-          <a className="link link-hover">Design</a>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
+        <nav className="text-left flex flex-col">
+          <header className="font-bold">Services</header>
+          <a className="underline">Branding</a>
+          <a className="underline">Design</a>
+          <a className="underline">Marketing</a>
+          <a className="underline">Advertisement</a>
         </nav>
-        <nav>
-          <header className="footer-title">Company</header>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Press kit</a>
+        <nav className="text-left flex flex-col">
+          <header className="font-bold">Company</header>
+          <a>About us</a>
+          <a>Contact</a>
+          <a>Jobs</a>
+          <a>Press kit</a>
         </nav>
-        <nav>
-          <header className="footer-title">Social</header>
+        <nav className="py-10 text-left">
+          <header className="font-semibold pb-5">Social links</header>
           <div className="grid grid-flow-col gap-4">
             <a>
               <svg
@@ -65,8 +63,14 @@ const Footer = () => {
             </a>
           </div>
         </nav>
-      </footer>
-    </div>
+      </div>
+      <div className="container mx-auto p-10 text-left flex flex-col">
+        <small>Copyright@2023</small>
+
+        <small>All rights preserved by drFatihaSultana</small>
+        <small>In support: devAlienBrain Coder</small>
+      </div>
+    </footer>
   );
 };
 
