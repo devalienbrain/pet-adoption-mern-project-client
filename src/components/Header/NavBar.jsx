@@ -1,11 +1,11 @@
-import logo from "../../../public/Resources/pawlogo.png";
+import logo from "../../../public/Resources/pet.png";
 
 const Header = () => {
   return (
-    <div className="border border-b-2">
-      <div className="container mx-auto flex justify-center md:justify-start items-center gap-2 py-3">
-        <img className="w-9 rounded-full" src={logo} />
-        <div className="normal-case text-xl font-black">pawspalace</div>
+    <div className="container mx-auto border-b-2 py-3">
+      <div className="flex justify-center md:justify-start items-center gap-1">
+        <img className="w-10" src={logo} />
+        <div className="text-2xl font-black">pawspalace</div>
       </div>
     </div>
   );
