@@ -25,7 +25,7 @@ const Footer = () => {
           <a>Jobs</a>
           <a>Press kit</a>
         </nav>
-        <nav className="py-10 text-left">
+        <nav className="py-24 text-left">
           <header className="font-semibold pb-5">Social links</header>
           <div className="grid grid-flow-col gap-4">
             <a>
@@ -64,11 +64,11 @@ const Footer = () => {
           </div>
         </nav>
       </div>
-      <div className="container mx-auto p-10 text-left flex flex-col">
-        <small>Copyright@2023</small>
-
-        <small>All rights preserved by drFatihaSultana</small>
-        <small>In support: devAlienBrain Coder</small>
+      <div className="container mx-auto border-t-0 p-10 text-left flex text-xs">
+        <small>
+          copyright@2023 || all rights preserved by drFatihaSultana || In
+          support: devAlienBrain Coder
+        </small>
       </div>
     </footer>
   );
