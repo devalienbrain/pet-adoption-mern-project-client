@@ -22,7 +22,7 @@ const CallToAction = () => {
               Unlocking Hearts and Changing Lives: The Pawsome Power of Pet
               Adoption!
             </h1>
-            <div className="p-5 italic text-sm flex flex-col space-y-2">
+            <div className="p-5 italic text-sm bg-gradient-to-r from-blue-700 via-blue-600 to-purple-700 bg-clip-text text-transparent flex flex-col space-y-2">
               <p>
                 When you adopt a pet, you're opening your heart to a furry
                 friend who will reciprocate your love unconditionally. The bond
