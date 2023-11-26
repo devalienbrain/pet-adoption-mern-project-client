@@ -95,7 +95,7 @@ const Login = () => {
                       className="p-3 border font-bold w-full rounded-lg border-black flex justify-center items-center gap-3"
                     >
                       <FaGithub></FaGithub>
-                      Github
+                      <span className="hover:underline">Github</span>
                     </button>
                   </div>
                   <div className="mx-auto font-semibold text-center w-full border-black-900 rounded-lg">
@@ -104,7 +104,7 @@ const Login = () => {
                       className="p-3 border font-bold w-full rounded-lg border-black flex justify-center items-center gap-3"
                     >
                       <FcGoogle></FcGoogle>
-                      Google
+                      <span className="hover:underline">Google</span>
                     </button>
                   </div>
                   <h2 className="text-center text-blue-900 py-5 border-b-2 border-t-2">
