@@ -14,7 +14,9 @@ const ErrorPage = () => {
         <h1 className="text-xl font-bold"> e r r o r !</h1>
         <Link to={"/"}>
           <div className="flex gap-2 text-sm bg-black py-3 px-5 rounded-xl text-white">
-            <span className=" italic font-semibold">click to back home</span>
+            <span className=" italic font-semibold">
+              click to back pawspalace home
+            </span>
           </div>
         </Link>
       </div>

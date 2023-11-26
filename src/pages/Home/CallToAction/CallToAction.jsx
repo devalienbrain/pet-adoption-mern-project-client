@@ -4,7 +4,7 @@ import callAction3 from "../../../../public/Resources/CallAction/callAction3.png
 const CallToAction = () => {
   return (
     <div>
-      <div className="flex flex-col lg:flex-row">
+      <div className="flex flex-col-reverse lg:flex-row">
         <div className="flex-1 grid grid-cols-1 md:grid-cols-2 md:grid-rows-2 gap-4 p-2">
           <div>
             <img className="w-full h-full" src={callAction1} />
