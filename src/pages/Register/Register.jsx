@@ -6,7 +6,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
-import signUpImg from "../../../public/Resources/signUp.avif";
+import signUpImg from "../../../public/Resources/signUp.png";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);

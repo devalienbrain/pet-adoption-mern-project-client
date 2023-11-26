@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../public/Resources/pet.png";
+import ThemeToggle from "../ThemeToggle";
 
 const Header = () => {
   const links = (
@@ -43,8 +44,9 @@ const Header = () => {
       <div className="col-span-2 flex justify-center items-center gap-3">
         {links}
       </div>
-      <div className="flex justify-end items-center">
+      <div className="flex gap-4 justify-end items-center">
         <Link to="/login">Login</Link>
+        <ThemeToggle></ThemeToggle>
       </div>
     </div>
   );

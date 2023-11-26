@@ -1,11 +1,11 @@
-import bannerImg from "../../../../public/Resources/BannerImg/bannerImg.avif";
+import bannerImg from "../../../../public/Resources/BannerImg/bannerImg.png";
 const Banner = () => {
   return (
     <div>
       <div className="flex flex-col-reverse md:flex-row">
         <div className="flex-1 flex justify-center items-center p-5">
           <div className="text-center md:text-left">
-            <h1 className="mb-5 text-2xl md:text-5xl text-black font-bold">
+            <h1 className="mb-5 text-2xl md:text-5xl  font-bold">
               PLANNING TO ADOPT A PET?
             </h1>
             <span>
