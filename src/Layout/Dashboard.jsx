@@ -73,7 +73,7 @@ const Dashboard = () => {
             {/* shared nav links */}
             <div className="divider"></div>
             <li>
-              <NavLink to="/dashboard/review">
+              <NavLink to="/dashboard/addAPet">
                 <FaAd></FaAd>
                 <p className="hover:underline">Add a pet</p>
               </NavLink>
