@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../../../public/Resources/pet.png";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-
+import { SlMenu } from "react-icons/sl";
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
 
@@ -11,11 +11,11 @@ const Header = () => {
   };
   const links = (
     <>
-      <div className="flex flex-row gap-4">
+      <div className="flex flex-col md:flex-row gap-4">
         <NavLink
           to="/"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-purple-600  font-bold" : ""
+            isPending ? "pending" : isActive ? "text-green-500  font-bold" : ""
           }
         >
           Home
@@ -23,7 +23,7 @@ const Header = () => {
         <NavLink
           to="/allpets"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-blue-600 font-bold" : ""
+            isPending ? "pending" : isActive ? "text-green-500 font-bold" : ""
           }
         >
           Pet listings
@@ -31,7 +31,7 @@ const Header = () => {
         <NavLink
           to="/allbooks"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-blue-600 font-bold" : ""
+            isPending ? "pending" : isActive ? "text-green-500 font-bold" : ""
           }
         >
           Donation campaigns
@@ -40,7 +40,7 @@ const Header = () => {
     </>
   );
 
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
 
   const toggleTheme = () => {
     const html = document.documentElement;
@@ -71,28 +71,54 @@ const Header = () => {
 
   return (
     <div
-      key={toggleTheme}
       className={` ${
-        theme === "light" ? "bg-white" : ""
+        theme === "light" ? "bg-white" : "bg-slate-950"
       } sticky top-0 z-50 py-7 grid grid-cols-1 md:grid-cols-4`}
     >
-      <div className="flex justify-center md:justify-start items-center gap-1">
+      <div className="flex justify-start items-center gap-1">
+        {/* DROPDOWN HAMBURGER MENU FOR MOBILE RESPONSIVE STARTS */}
+        <div className="md:hidden dropdown">
+          <label tabIndex={0} className="btn btn-ghost ">
+            <SlMenu></SlMenu>
+          </label>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box"
+          >
+            <div className="text-left">{links}</div>
+          </ul>
+        </div>
+        {/* DROPDOWN HAMBURGER MENU FOR MOBILE RESPONSIVE STARTS */}
         <img className="w-8" src={logo} />
         <div className="text-lg font-black bg-gradient-to-r from-blue-700 via-blue-600 to-purple-700 bg-clip-text text-transparent">
           PAWSPALACE
         </div>
       </div>
-      <div className="col-span-2 flex justify-center items-center gap-3">
+      <div className="hidden md:flex col-span-2  justify-center items-center gap-3">
         {links}
       </div>
       <div className="flex gap-4 justify-end items-center">
         {user ? (
           <div className="justify-end flex items-center gap-2">
-            <div className="text-right">
-              <p>{user?.displayName}</p>
-              <button onClick={handleLogOut}>Logout</button>
+            <div className="dropdown">
+              <label tabIndex={0} className="btn btn-ghost ">
+                <img className="w-8 h-8 rounded-full" src={user?.photoURL} />
+              </label>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box"
+              >
+                <div className="text-left">
+                  <p className="text-lime-600">{user?.displayName}</p>
+                  <Link className="text-blue-600" to="/dashboard">
+                    Dashboard
+                  </Link>
+                  <button className="text-red-600" onClick={handleLogOut}>
+                    Logout
+                  </button>
+                </div>
+              </ul>
             </div>
-            <img className="w-7 h-7 rounded-full" src={user?.photoURL} />
           </div>
         ) : (
           <Link to="/login" className="font-semibold">
