@@ -11,8 +11,10 @@ const JoinWithUs = () => {
             <h1 className="mb-5 text-xl md:text-3xl bg-gradient-to-r from-blue-700 via-blue-600 to-purple-700 bg-clip-text text-transparent font-bold">
               BECOME A HUMAN HERO
             </h1>
-            <span className="text-base md:text-lg font-semibold italic">
-              join our community || donate and adopt
+            <span className="text-xs md:text-sm">
+              Discover the immeasurable joy of companionship and the
+              transformative power of love by adopting a pet into your life
+              today
             </span>
           </div>
         </div>

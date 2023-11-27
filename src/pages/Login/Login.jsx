@@ -89,7 +89,7 @@ const Login = () => {
                   onSubmit={handleLogin}
                   className="flex flex-col gap-4 px-5 py-5"
                 >
-                  <div className="mx-auto font-semibold text-center w-full text-black rounded-lg">
+                  <div className="mx-auto font-semibold text-center w-full rounded-lg hover:shadow-2xl">
                     <button
                       onClick={handleGithubLogin}
                       className="p-3 border font-bold w-full rounded-lg border-black flex justify-center items-center gap-3"
@@ -98,7 +98,7 @@ const Login = () => {
                       <span className="hover:underline">Github</span>
                     </button>
                   </div>
-                  <div className="mx-auto font-semibold text-center w-full border-black-900 rounded-lg">
+                  <div className="mx-auto font-semibold text-center w-full border-black-900 rounded-lg hover:shadow-2xl">
                     <button
                       onClick={handleGoogleLogin}
                       className="p-3 border font-bold w-full rounded-lg border-black flex justify-center items-center gap-3"
@@ -107,8 +107,8 @@ const Login = () => {
                       <span className="hover:underline">Google</span>
                     </button>
                   </div>
-                  <h2 className="text-center text-blue-900 py-5 border-b-2 border-t-2">
-                    Or,
+                  <h2 className="text-center  py-2 my-3 border-b border-t">
+                    Or
                   </h2>
                   <h2 className="text-xs font-black">exisiting email</h2>
                   <input
@@ -146,7 +146,7 @@ const Login = () => {
                     ERROR: {errorMessage}
                   </p>
                 )}
-                <p className="text-purple-900 font-bold text-center text-base mb-5 px-4">
+                <p className="text-lime-500 font-bold text-center text-sm mb-5 px-4">
                   Not register before?{" "}
                   <Link to="/register"> please register first </Link>
                 </p>
