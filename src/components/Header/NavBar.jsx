@@ -73,7 +73,7 @@ const Header = () => {
     <div
       className={` ${
         theme === "light" ? "bg-white" : "bg-slate-950"
-      } sticky top-0 z-50 py-7 grid grid-cols-1 md:grid-cols-4`}
+      } sticky top-0 z-50 py-5 grid grid-cols-1 md:grid-cols-4`}
     >
       <div className="flex justify-start items-center gap-1">
         {/* DROPDOWN HAMBURGER MENU FOR MOBILE RESPONSIVE STARTS */}
@@ -108,14 +108,14 @@ const Header = () => {
                 tabIndex={0}
                 className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box"
               >
-                <div className="text-left">
+                <div className="p-3 text-left flex flex-col space-y-3">
                   <p className="text-lime-600">{user?.displayName}</p>
                   <Link className="text-blue-600" to="/dashboard">
                     Dashboard
                   </Link>
-                  <button className="text-red-600" onClick={handleLogOut}>
+                  <p className="text-red-600" onClick={handleLogOut}>
                     Logout
-                  </button>
+                  </p>
                 </div>
               </ul>
             </div>

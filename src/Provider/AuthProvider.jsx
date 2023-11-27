@@ -7,9 +7,11 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import app from "../../public/firebase/firebase.config";
+import axios from "axios";
 
 export const AuthContext = createContext(null);
 
@@ -38,6 +40,13 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, githubProvider);
   };
 
+  const updateUserProfile = (name, photo) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
+  };
+
   const logOut = () => {
     setLoading(true);
     return signOut(auth);
@@ -47,7 +56,19 @@ const AuthProvider = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log("Current Active USER:", currentUser);
       setUser(currentUser);
-      setLoading(false);
+
+      // get and set token
+      if (currentUser) {
+        axios
+          .post("http://localhost:5000/jwt", { email: currentUser.email })
+          .then((res) => {
+            console.log(res.data.token);
+            localStorage.setItem("access-token", res.data.token);
+            setLoading(false);
+          });
+      } else {
+        localStorage.removeItem("access-token");
+      }
     });
 
     return () => {
@@ -62,6 +83,7 @@ const AuthProvider = ({ children }) => {
     signIn,
     loginGoogle,
     loginGithub,
+    updateUserProfile,
     logOut,
   };
 
