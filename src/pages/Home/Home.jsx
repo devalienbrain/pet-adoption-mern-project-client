@@ -4,16 +4,18 @@ import CallToAction from "./CallToAction/CallToAction";
 import Categories from "./Categories/Categories";
 import DonateMonthly from "./DonateMonthly/DonateMonthly";
 import JoinWithUs from "./JoinWithUs/JoinWithUs";
+// import PetGroup from "./PetGroup";
 
 const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      <Categories></Categories>
-      <CallToAction></CallToAction>
-      <AboutUs></AboutUs>
-      <DonateMonthly></DonateMonthly>
       <JoinWithUs></JoinWithUs>
+      <Categories></Categories>
+      <AboutUs></AboutUs>
+      {/* <PetGroup></PetGroup> */}
+      <CallToAction></CallToAction>
+      <DonateMonthly></DonateMonthly>
     </div>
   );
 };
