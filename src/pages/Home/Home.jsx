@@ -4,18 +4,18 @@ import CallToAction from "./CallToAction/CallToAction";
 import Categories from "./Categories/Categories";
 import DonateMonthly from "./DonateMonthly/DonateMonthly";
 import JoinWithUs from "./JoinWithUs/JoinWithUs";
-// import PetGroup from "./PetGroup";
+import PetGroup from "./PetGroup";
 
 const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      <JoinWithUs></JoinWithUs>
-      <Categories></Categories>
+      <PetGroup></PetGroup>
       <AboutUs></AboutUs>
-      {/* <PetGroup></PetGroup> */}
+      <Categories></Categories>
       <CallToAction></CallToAction>
       <DonateMonthly></DonateMonthly>
+      <JoinWithUs></JoinWithUs>
     </div>
   );
 };

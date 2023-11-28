@@ -14,9 +14,9 @@ const Categories = () => {
 
   return (
     <div className="text-center my-20">
-      <h3 className="text-3xl md:text-4xl font-semibold pt-5">
-        PET CATEGORIES
-      </h3>
+      <h1 className="my-5 text-xl md:text-3xl bg-gradient-to-r from-blue-700 via-purple-700 to-blue-600  bg-clip-text text-transparent font-bold">
+        BROWSE PET BY CATEGORIES
+      </h1>
       <div className="py-9 grid grid-cols-1 md:grid-cols-4 lg:grid-cols-7 gap-10">
         {categories.map((category) => (
           <CategoryCard key={category.id} category={category}></CategoryCard>
