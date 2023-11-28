@@ -11,6 +11,8 @@ import AddAPet from "../pages/Dashboard/AddAPet/AddAPet";
 import Home from "../pages/Home/Home";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
+import AddedPets from "../pages/Dashboard/AddedPets/AddedPets";
+import AllPetsByAdmin from "../pages/Dashboard/AllPetsByAdmin/AllPetsByAdmin";
 // import PrivateRoute from "./PrivateRoute";
 const routes = createBrowserRouter([
   {
@@ -59,8 +61,20 @@ const routes = createBrowserRouter([
         ),
       },
       {
+        path: "allPetsByAdmin",
+        element: (
+          <AdminRoute>
+            <AllPetsByAdmin></AllPetsByAdmin>
+          </AdminRoute>
+        ),
+      },
+      {
         path: "addAPet",
         element: <AddAPet></AddAPet>,
+      },
+      {
+        path: "addedPets",
+        element: <AddedPets></AddedPets>,
       },
     ],
   },

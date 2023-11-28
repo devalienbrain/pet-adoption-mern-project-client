@@ -48,13 +48,13 @@ const Dashboard = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/dashboard/users">
+                  <NavLink to="/dashboard/allPetsByAdmin">
                     <FaUsers></FaUsers>
                     All Pets
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/dashboard/users">
+                  <NavLink to="/dashboard/addedPets">
                     <FaUsers></FaUsers>
                     All Donations
                   </NavLink>
@@ -79,7 +79,7 @@ const Dashboard = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/dashboard/cart">
+              <NavLink to="/dashboard/addedPets">
                 <FaShoppingCart></FaShoppingCart>
                 <p className="hover:underline">My Added Pets</p>
               </NavLink>

@@ -3,7 +3,7 @@ import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { FcAddDatabase } from "react-icons/fc";
-// import useAuth from "../../../hooks/useAuth";
+import useAuth from "../../../hooks/useAuth";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -12,7 +12,8 @@ const AddAPet = () => {
   const { register, handleSubmit, reset } = useForm();
   const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure();
-  // const { user } = useAuth();
+  const { user } = useAuth();
+  console.log(user.email);
   const onSubmit = async (data) => {
     console.log(data);
     // image upload to imgbb and then get an url
@@ -32,7 +33,7 @@ const AddAPet = () => {
         shortDescription: data.short,
         longDescription: data.long,
         image: res.data.data.display_url,
-        // addedByUser: user?.email,
+        addedByUser: user.email,
       };
       //
       const petRes = await axiosSecure.post("/addedPets", petDetails);

@@ -19,7 +19,7 @@ const Categories = () => {
       </h1>
       <div className="py-9 grid grid-cols-1 md:grid-cols-4 lg:grid-cols-7 gap-10">
         {categories.map((category) => (
-          <CategoryCard key={category.id} category={category}></CategoryCard>
+          <CategoryCard key={category._id} category={category}></CategoryCard>
         ))}
       </div>
     </div>
