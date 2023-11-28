@@ -12,8 +12,8 @@ const Home = () => {
       <Categories></Categories>
       <CallToAction></CallToAction>
       <AboutUs></AboutUs>
-      <JoinWithUs></JoinWithUs>
       <DonateMonthly></DonateMonthly>
+      <JoinWithUs></JoinWithUs>
     </div>
   );
 };

@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../Layout/Root";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
-import Home from "../Pages/Home/Home";
 import Login from "../pages/login/Login";
 import Register from "../pages/Register/Register";
 import AllPets from "../pages/PetListing/PetListing";
@@ -9,6 +8,9 @@ import PetDetails from "../pages/PetDetails/PetDetails";
 import Dashboard from "../Layout/Dashboard";
 import AllUsers from "../pages/Dashboard/AllUsers";
 import AddAPet from "../pages/Dashboard/AddAPet/AddAPet";
+import Home from "../pages/Home/Home";
+import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
 // import PrivateRoute from "./PrivateRoute";
 const routes = createBrowserRouter([
   {
@@ -42,11 +44,19 @@ const routes = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <Dashboard></Dashboard>,
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "users",
-        element: <AllUsers></AllUsers>,
+        element: (
+          <AdminRoute>
+            <AllUsers></AllUsers>
+          </AdminRoute>
+        ),
       },
       {
         path: "addAPet",
