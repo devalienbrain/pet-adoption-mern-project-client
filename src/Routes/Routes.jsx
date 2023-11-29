@@ -13,6 +13,9 @@ import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import AddedPets from "../pages/Dashboard/AddedPets/AddedPets";
 import AllPetsByAdmin from "../pages/Dashboard/AllPetsByAdmin/AllPetsByAdmin";
+import CreateDonation from "../pages/Dashboard/CreateDonation/CreateDonation";
+import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
+import UserHome from "../pages/Dashboard/UserHome/UserHome";
 // import PrivateRoute from "./PrivateRoute";
 const routes = createBrowserRouter([
   {
@@ -45,13 +48,21 @@ const routes = createBrowserRouter([
     ],
   },
   {
-    path: "dashboard",
+    path: "/dashboard",
     element: (
       <PrivateRoute>
         <Dashboard></Dashboard>
       </PrivateRoute>
     ),
     children: [
+      {
+        path: "adminHome",
+        element: (
+          <AdminRoute>
+            <AdminHome></AdminHome>
+          </AdminRoute>
+        ),
+      },
       {
         path: "users",
         element: (
@@ -69,12 +80,20 @@ const routes = createBrowserRouter([
         ),
       },
       {
+        path: "userHome",
+        element: <UserHome></UserHome>,
+      },
+      {
         path: "addAPet",
         element: <AddAPet></AddAPet>,
       },
       {
         path: "addedPets",
         element: <AddedPets></AddedPets>,
+      },
+      {
+        path: "createDonation",
+        element: <CreateDonation></CreateDonation>,
       },
     ],
   },

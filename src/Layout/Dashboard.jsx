@@ -23,15 +23,9 @@ const Dashboard = () => {
   return (
     <>
       <NavBar></NavBar>
-      <div className="flex">
+      <div className="flex flex-col md:flex-row">
         {/* dashboard side bar */}
-        <div className="w-64 min-h-screen bg-blue-50 text-red-700 text-xl font-semibold pt-20">
-          <div className="text-left"></div>
-          <div className="p-8">
-            <div className="flex justify-sart"></div>
-            <p className="text-2xl font-black"></p>
-            <p className="italic text-sm"></p>
-          </div>
+        <div className="w-full md:w-64 min-h-screen bg-blue-50 text-red-700 text-xl font-semibold pt-20">
           <ul className="menu p-4">
             {isAdmin ? (
               <>
@@ -91,7 +85,7 @@ const Dashboard = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/dashboard/reservation">
+              <NavLink to="/dashboard/createDonation">
                 <FaCalendar></FaCalendar>
                 <p className="hover:underline">Create Donation Campaign</p>
               </NavLink>

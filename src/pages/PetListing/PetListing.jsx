@@ -119,9 +119,9 @@ const AllPets = () => {
     <div>
       <div className="flex justify-center items-center p-10">
         <div>
-          <div className="text-3xl bg-gradient-to-r from-pink-500 via-red-500 to-red-900 bg-clip-text text-transparent text-center font-black uppercase py-10">
+          <h1 className="text-3xl bg-gradient-to-r from-pink-500 via-red-500 to-red-900 bg-clip-text text-transparent text-center font-black uppercase py-10">
             LIST OF ALL PETS
-          </div>
+          </h1>
 
           {/* LOAD AND SHOW BOOKS SECTION STARTS */}
           <div className="min-h-screen">
