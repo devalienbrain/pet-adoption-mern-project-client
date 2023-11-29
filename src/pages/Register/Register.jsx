@@ -214,17 +214,17 @@ const Register = () => {
   return (
     <>
       <Helmet>
-        <title>Bistro Boss | Sign Up</title>
+        <title>PawsPalace Pet Place | Register</title>
       </Helmet>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="flex-1 p-20">
             <h2 className=" text-2xl font-black bg-gradient-to-r from-green-700 via-red-600 to-lime-800 text-transparent bg-clip-text uppercase">
-              Just one click and join this proud community
+              You are just one click away to join our global community
             </h2>
             <img className="w-full h-full object-contain" src={signUpImg} />
           </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 px-5 py-10">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">
@@ -302,17 +302,12 @@ const Register = () => {
                     and one special character.
                   </p>
                 )}
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
-                    Forgot password?
-                  </a>
-                </label>
               </div>
               <div className="form-control mt-6">
                 <input
-                  className="btn btn-primary"
+                  className="btn bg-gradient-to-r from-green-700 via-lime-700 to-red-600"
                   type="submit"
-                  value="Sign Up"
+                  value="REGISTER"
                 />
               </div>
             </form>

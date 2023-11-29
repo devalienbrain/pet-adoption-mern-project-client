@@ -159,8 +159,8 @@
 // };
 
 // export default Login;
-
-import { useContext } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
@@ -170,6 +170,8 @@ import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const { signIn, loginGoogle } = useContext(AuthContext);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -182,20 +184,23 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
-    signIn(email, password).then((result) => {
-      const user = result.user;
-      console.log(user);
-      Swal.fire({
-        title: "User Login Successful.",
-        showClass: {
-          popup: "animate__animated animate__fadeInDown",
-        },
-        hideClass: {
-          popup: "animate__animated animate__fadeOutUp",
-        },
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Login successful.",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.error(error);
+        setErrorMessage(error.message);
       });
-      navigate(from, { replace: true });
-    });
   };
 
   const handleGoogleLogIn = () => {
@@ -219,59 +224,76 @@ const Login = () => {
         });
     });
   };
-
+  const handlePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
   return (
     <>
       <Helmet>
-        <title>Bistro Boss | Login</title>
+        <title>PawsPalace Pet Place | Login</title>
       </Helmet>
       <div className="hero flex min-h-screen">
         <div className="hero-content p-16 flex-1 flex-col md:flex-row-reverse">
           <img className="" src={loginImg} alt="Login" />
         </div>
-        <div className="card flex-1 max-w-sm shadow-2xl bg-base-100">
+        <div className="card flex-1 max-w-sm shadow-2xl bg-base-100 p-10">
+          <h2 className="text-2xl font-black bg-gradient-to-r from-blue-700 via-blue-600 to-purple-700 text-transparent bg-clip-text">
+            Login with
+          </h2>
           <form onSubmit={handleLogin} className="card-body">
-            <div className="mx-auto font-semibold text-center w-full border-black-900 rounded-lg hover:shadow-2xl">
+            <div className="mx-auto font-semibold text-center w-full border-black-900 rounded-lg">
               <button
                 onClick={handleGoogleLogIn}
                 className="p-3 border font-bold w-full rounded-lg border-black flex justify-center items-center gap-3"
               >
                 <FcGoogle></FcGoogle>
-                <span className="hover:underline">Google</span>
+                <span className="hover:text-blue-500">Google</span>
               </button>
             </div>
+            <h2 className="bg-gradient-to-r from-blue-700 via-blue-600 to-purple-700 text-transparent bg-clip-text text-center  py-2 my-3 border-b border-t">
+              Or
+            </h2>
+            <h2 className="text-sm font-bold">exisiting email and password</h2>
             <div className="form-control">
-              <label className="label">
-                <span className="label-text">Email</span>
-              </label>
               <input
                 type="email"
                 name="email"
-                placeholder="email"
-                className="input input-bordered"
+                placeholder="enter your email"
+                className="input input-bordered w-full"
               />
             </div>
             <div className="form-control">
-              <label className="label">
-                <span className="label-text">Password</span>
-              </label>
-              <input
-                type="password"
-                name="password"
-                placeholder="password"
-                className="input input-bordered"
-              />
-              <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
-              </label>
+              <div>
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  placeholder="password"
+                  className="input input-bordered w-full"
+                />
+                <span
+                  onClick={handlePasswordVisibility}
+                  className="absolute -ml-7 mt-4"
+                >
+                  {showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
+                </span>
+              </div>
+            </div>
+            <div className="form-control mt-6">
+              <button className="p-3 rounded-lg bg-gradient-to-r from-blue-700 via-blue-600 to-purple-700 text-white font-black hover:bg-gradient-to-l">
+                Login
+              </button>
             </div>
           </form>
-          <p className="px-6">
-            <small>
-              New Here? <Link to="/signup">Create an account</Link>{" "}
-            </small>
+          <div>
+            {errorMessage && (
+              <p className="text-center font-bold text-sm text-red-600 mb-5 px-4">
+                ERROR: {errorMessage}
+              </p>
+            )}
+          </div>
+          <p className="text-lime-500 font-bold text-center text-sm mb-5 px-4">
+            Not a registered user?
+            <Link to="/register"> register first </Link>
           </p>
         </div>
       </div>

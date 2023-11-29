@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import AllDonationCampaignsDisplayCard from "./AllDonationCampaignsDisplayCard";
+import { Helmet } from "react-helmet-async";
 
 const DonationCampaigns = () => {
   const [campaigns, setCampaigns] = useState([]);
@@ -14,6 +15,9 @@ const DonationCampaigns = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>PawsPalace Pet Place | Donations</title>
+      </Helmet>
       <div className="flex justify-center items-center p-10">
         <div>
           <h1 className="text-3xl bg-gradient-to-r from-pink-500 via-red-500 to-red-900 bg-clip-text text-transparent text-center font-black uppercase py-10">

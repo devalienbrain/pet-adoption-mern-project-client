@@ -103,6 +103,7 @@
 
 import { useEffect, useState } from "react";
 import AllPetsDisplayCard from "./AllPetsDisplayCard";
+import { Helmet } from "react-helmet-async";
 
 const AllPets = () => {
   const [pets, setPets] = useState([]);
@@ -117,6 +118,9 @@ const AllPets = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>PawsPalace Pet Place | Pet List</title>
+      </Helmet>
       <div className="flex justify-center items-center p-10">
         <div>
           <h1 className="text-3xl bg-gradient-to-r from-pink-500 via-red-500 to-red-900 bg-clip-text text-transparent text-center font-black uppercase py-10">

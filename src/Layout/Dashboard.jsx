@@ -14,6 +14,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
 // import useCart from "../hooks/useCart";
 import NavBar from "../components/Header/NavBar";
+import { Helmet } from "react-helmet-async";
 const Dashboard = () => {
   // const [cart] = useCart();
 
@@ -22,6 +23,9 @@ const Dashboard = () => {
 
   return (
     <>
+      <Helmet>
+        <title>PawsPalace Pet Place | Dashboard</title>
+      </Helmet>
       <NavBar></NavBar>
       <div className="flex flex-col md:flex-row">
         {/* dashboard side bar */}

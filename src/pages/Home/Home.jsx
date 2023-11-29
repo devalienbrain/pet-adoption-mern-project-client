@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import AboutUs from "./AboutUs/AboutUs";
 import Banner from "./Banner/Banner";
 import CallToAction from "./CallToAction/CallToAction";
@@ -9,6 +10,9 @@ import PetGroup from "./PetGroup";
 const Home = () => {
   return (
     <div>
+      <Helmet>
+        <title>PawsPalace Pet Place | Home</title>
+      </Helmet>
       <Banner></Banner>
       <JoinWithUs></JoinWithUs>
       <PetGroup></PetGroup>

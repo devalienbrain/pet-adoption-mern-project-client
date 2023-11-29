@@ -45,7 +45,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "/details/:id",
-        element: <PetDetails></PetDetails>,
+        element: (
+          <PrivateRoute>
+            <PetDetails></PetDetails>
+          </PrivateRoute>
+        ),
         loader: () => fetch("http://localhost:5000/allPets"),
       },
       {
@@ -54,7 +58,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "/campaignDetails/:id",
-        element: <DonationDetails></DonationDetails>,
+        element: (
+          <PrivateRoute>
+            <DonationDetails></DonationDetails>
+          </PrivateRoute>
+        ),
         loader: () => fetch("http://localhost:5000/donation"),
       },
     ],
@@ -93,23 +101,43 @@ const routes = createBrowserRouter([
       },
       {
         path: "userHome",
-        element: <UserHome></UserHome>,
+        element: (
+          <PrivateRoute>
+            <UserHome></UserHome>
+          </PrivateRoute>
+        ),
       },
       {
         path: "addAPet",
-        element: <AddAPet></AddAPet>,
+        element: (
+          <PrivateRoute>
+            <AddAPet></AddAPet>
+          </PrivateRoute>
+        ),
       },
       {
         path: "addedPets",
-        element: <AddedPets></AddedPets>,
+        element: (
+          <PrivateRoute>
+            <AddedPets></AddedPets>
+          </PrivateRoute>
+        ),
       },
       {
         path: "createDonation",
-        element: <CreateDonation></CreateDonation>,
+        element: (
+          <PrivateRoute>
+            <CreateDonation></CreateDonation>
+          </PrivateRoute>
+        ),
       },
       {
         path: "createdCampaigns",
-        element: <MyCreatedDonationCampaigns></MyCreatedDonationCampaigns>,
+        element: (
+          <PrivateRoute>
+            <MyCreatedDonationCampaigns></MyCreatedDonationCampaigns>
+          </PrivateRoute>
+        ),
       },
     ],
   },
