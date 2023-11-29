@@ -15,7 +15,7 @@ const Header = () => {
         <NavLink
           to="/"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-green-500  font-bold" : ""
+            isPending ? "pending" : isActive ? "text-red-600  font-bold" : ""
           }
         >
           Home
@@ -23,15 +23,15 @@ const Header = () => {
         <NavLink
           to="/allpets"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-green-500 font-bold" : ""
+            isPending ? "pending" : isActive ? "text-red-600 font-bold" : ""
           }
         >
           Pet listings
         </NavLink>
         <NavLink
-          to="/allbooks"
+          to="/donationCampaigns"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-green-500 font-bold" : ""
+            isPending ? "pending" : isActive ? "text-red-600 font-bold" : ""
           }
         >
           Donation campaigns

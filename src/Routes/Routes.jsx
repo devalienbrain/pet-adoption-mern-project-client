@@ -16,6 +16,7 @@ import AllPetsByAdmin from "../pages/Dashboard/AllPetsByAdmin/AllPetsByAdmin";
 import CreateDonation from "../pages/Dashboard/CreateDonation/CreateDonation";
 import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import UserHome from "../pages/Dashboard/UserHome/UserHome";
+import DonationCampaigns from "../pages/DonationCampaigns/DonationCampaigns";
 // import PrivateRoute from "./PrivateRoute";
 const routes = createBrowserRouter([
   {
@@ -44,6 +45,11 @@ const routes = createBrowserRouter([
         path: "/details/:id",
         element: <PetDetails></PetDetails>,
         loader: () => fetch("http://localhost:5000/allPets"),
+      },
+      {
+        path: "/donationCampaigns",
+        element: <DonationCampaigns></DonationCampaigns>,
+        loader: () => fetch("http://localhost:5000/petsCount"),
       },
     ],
   },
