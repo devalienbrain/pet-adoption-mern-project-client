@@ -3,15 +3,22 @@ import Swal from "sweetalert2";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
-const PetDetails = () => {
+const DonationDetails = () => {
   const { user } = useContext(AuthContext);
-  const pets = useLoaderData();
+  const donations = useLoaderData();
   const { id } = useParams();
   // const navigate = useNavigate();
-  const targetedPet = pets.find((pet) => id === pet._id);
+  const targetedCampaign = donations.find((pet) => id === pet._id);
   // console.log(targetedPet);
-  const { name, image, age, location, category, longDescription, _id } =
-    targetedPet || {};
+  const {
+    campaignName,
+    image,
+    petName,
+    longDescription,
+    lastDate,
+    maxAmount,
+    _id,
+  } = targetedCampaign || {};
 
   // Handle the modal
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -22,7 +29,7 @@ const PetDetails = () => {
     setIsModalOpen(false);
   };
 
-  // HANDLE ADOPT BTN CLICKED
+  // HANDLE DONATE BTN CLICKED
   const [adoptedPets, setAdoptedPets] = useState([]);
   const handlePetAdoption = (e) => {
     e.preventDefault();
@@ -72,20 +79,22 @@ const PetDetails = () => {
           <figure>
             <img src={image} alt="book" />
           </figure>
-          <div className="card-body text-left italic">
-            <h2 className="card-title">Pet name: {name}</h2>
-            <h2 className="card-title">Category: {category}</h2>
-            <h2 className="card-title">Pet Age: {age}</h2>
-            <h2 className="card-title">Pet Location: {location}</h2>
+          <div className="card-body text-left italic flex flex-col space-y-3">
+            <h2 className="card-title">Campaign name: {campaignName}</h2>
+            <h2 className="card-title">Last Date Of Donation: {lastDate}</h2>
+            <h2 className="card-title">
+              Maximum Amount To Donate: {maxAmount}
+            </h2>
+            <h2 className="card-title">Pet Name: {petName}</h2>
 
-            <div>Pet Description: {longDescription}</div>
+            <div>Details: {longDescription}</div>
             <div className="flex gap-1">
               <button
                 onClick={openModal}
-                className="px-4 py-2 border border-red-600  text-red-700
-                hover:text-red-600 rounded-lg drop-shadow-2xl text-sm font-bold"
+                className="px-4 py-2 bg-red-800  text-white
+                hover:text-red-700 rounded-lg drop-shadow-2xl text-sm font-semibold"
               >
-                Adopt the pet
+                DONATE NOW
               </button>
             </div>
           </div>
@@ -96,16 +105,16 @@ const PetDetails = () => {
       {isModalOpen && (
         <div className="modal-container">
           <dialog
-            id="To_Adopt_A_Pet"
+            id="To_Donate"
             className="modal modal-bottom sm:modal-middle"
             open
           >
-            <div className="modal-box bg-blue-300 shadow-lg text-purple-900">
-              <h3 className="font-black text-lg text-red-700">
+            <div className="modal-box bg-red-200 shadow-lg text-purple-900">
+              <h3 className="font-black text-lg text-green-700">
                 Please fill required information first
               </h3>
               <form
-                onSubmit={handlePetAdoption}
+                // onSubmit={handlePetAdoption}
                 className="flex flex-col gap-4 px-5 py-9"
               >
                 <input
@@ -128,16 +137,9 @@ const PetDetails = () => {
                   // readOnly
                 />
                 <input
-                  type="text"
+                  type="number"
                   name="phone"
-                  placeholder="phone number"
-                  className="input input-bordered text-blue-600"
-                  required
-                />
-                <input
-                  type="text"
-                  name="address"
-                  placeholder="enter yor address"
+                  placeholder="amount to donate"
                   className="input input-bordered text-blue-600"
                   required
                 />
@@ -151,7 +153,7 @@ const PetDetails = () => {
                 <div className="modal-action">
                   <p
                     onClick={closeModal}
-                    className="underline text-xs italic text-red-700 hover:text-red-600"
+                    className="underline text-xs italic text-red-900 hover:text-red-950"
                   >
                     close modal
                   </p>
@@ -165,4 +167,4 @@ const PetDetails = () => {
   );
 };
 
-export default PetDetails;
+export default DonationDetails;

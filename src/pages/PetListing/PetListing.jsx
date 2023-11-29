@@ -125,7 +125,7 @@ const AllPets = () => {
 
           {/* LOAD AND SHOW BOOKS SECTION STARTS */}
           <div className="min-h-screen">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
               {pets.map((singlePet) => (
                 <AllPetsDisplayCard
                   key={singlePet._id}

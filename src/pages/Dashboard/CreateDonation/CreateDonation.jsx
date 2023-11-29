@@ -31,6 +31,7 @@ const CreateDonation = () => {
         lastDate: data.date,
         shortDescription: data.short,
         longDescription: data.long,
+        petName: data.petName,
         image: res.data.data.display_url,
         addedByUser: user.email,
       };
@@ -64,20 +65,6 @@ const CreateDonation = () => {
           <div className="flex gap-6">
             <div className="form-control w-full my-6">
               <label className="label">
-                <span className="label-text">Maximum Donation Amount*</span>
-              </label>
-              <input
-                type="number"
-                placeholder="enter amount"
-                {...register("amount", { required: true })}
-                required
-                className="input input-bordered w-full"
-              />
-            </div>
-          </div>
-          <div className="flex gap-6">
-            <div className="form-control w-full my-6">
-              <label className="label">
                 <span className="label-text">Donation Campaign Name*</span>
               </label>
               <input
@@ -89,7 +76,20 @@ const CreateDonation = () => {
               />
             </div>
           </div>
-
+          <div className="flex gap-6">
+            <div className="form-control w-full my-6">
+              <label className="label">
+                <span className="label-text">Maximum Donation Amount*</span>
+              </label>
+              <input
+                type="number"
+                placeholder="enter amount"
+                {...register("amount", { required: true })}
+                required
+                className="input input-bordered w-full"
+              />
+            </div>
+          </div>
           <div className="flex gap-6">
             {/* location */}
             <div className="form-control w-full my-6">
@@ -119,7 +119,7 @@ const CreateDonation = () => {
           {/* pet details */}
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Pet Details (Long Description)</span>
+              <span className="label-text">Details Description</span>
             </label>
             <textarea
               {...register("long")}
@@ -127,7 +127,20 @@ const CreateDonation = () => {
               placeholder="details"
             ></textarea>
           </div>
-
+          <div className="flex gap-6">
+            <div className="form-control w-full my-6">
+              <label className="label">
+                <span className="label-text">Pet Name*</span>
+              </label>
+              <input
+                type="text"
+                placeholder="enter pet name"
+                {...register("petName", { required: true })}
+                required
+                className="input input-bordered w-full"
+              />
+            </div>
+          </div>
           <div className="form-control w-full my-6">
             <label className="label">
               <span className="label-text">Please upload pet image</span>

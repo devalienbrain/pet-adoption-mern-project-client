@@ -88,13 +88,15 @@ const Header = () => {
             <div className="text-left">{links}</div>
           </ul>
         </div>
-        {/* DROPDOWN HAMBURGER MENU FOR MOBILE RESPONSIVE STARTS */}
-        <img className="w-8" src={logo} />
-        <div className="text-lg font-black bg-gradient-to-r from-blue-700 via-blue-600 to-purple-700 bg-clip-text text-transparent">
-          PAWSPALACE
+        {/* DROPDOWN HAMBURGER MENU FOR MOBILE RESPONSIVE ENDS */}
+        <div className="md:pl-5 flex items-center">
+          <img className="w-8" src={logo} />
+          <h1 className="text-lg font-black bg-gradient-to-r from-blue-700 via-purple-600 to-red-500 bg-clip-text text-transparent">
+            PAWSPALACE
+          </h1>
         </div>
       </div>
-      <div className="hidden md:flex col-span-2  justify-center items-center gap-3">
+      <div className="hidden md:flex col-span-2  justify-center items-center gap-3 text-sm">
         {links}
       </div>
       <div className="flex gap-4 justify-end items-center">
