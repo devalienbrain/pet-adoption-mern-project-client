@@ -91,7 +91,7 @@ const Dashboard = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/dashboard/bookings">
+              <NavLink to="/dashboard/createdCampaigns">
                 <FaSearch></FaSearch>
                 <p className="hover:underline">My Donation Campaigns</p>
               </NavLink>
