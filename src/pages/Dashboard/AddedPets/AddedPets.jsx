@@ -22,10 +22,11 @@ const AddedPets = () => {
           {/* head */}
           <thead>
             <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Role</th>
+              <th>Serial</th>
+              <th>Pet Name</th>
+              <th>Pet Category</th>
+              <th>Pet Image</th>
+              <th>Adoption Status</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -33,10 +34,22 @@ const AddedPets = () => {
             {addedPets.map((addedPet, index) => (
               <tr key={addedPet._id}>
                 <th>{index + 1}</th>
-                <td>Ka</td>
-                <td>Kha</td>
-                <td>Hmm</td>
-                <td>Jaa</td>
+                <td>{addedPet.name}</td>
+                <td>{addedPet.category}</td>
+                <td>
+                  <img
+                    className="w-20 h-20 rounded-full"
+                    src={addedPet.image}
+                  />
+                </td>
+                <td>Jaa Dusto</td>
+                <td>
+                  <div className="flex flex-col space-y-2">
+                    <button className="btn btn-outline">Update</button>
+                    <button className="btn btn-secondary">Delete</button>
+                    <button className="btn btn-accent">Adopted</button>
+                  </div>
+                </td>
               </tr>
             ))}
           </tbody>

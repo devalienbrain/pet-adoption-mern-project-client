@@ -191,6 +191,7 @@ const Register = () => {
           const userInfo = {
             name: data.name,
             email: data.email,
+            photoURL: data.photoURL,
           };
           axiosPublic.post("/users", userInfo).then((res) => {
             if (res.data.insertedId) {
@@ -225,6 +226,9 @@ const Register = () => {
             <img className="w-full h-full object-contain" src={signUpImg} />
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 px-5 py-10">
+            <h2 className="text-2xl font-black bg-gradient-to-r from-blue-700 via-blue-600 to-purple-700 text-transparent bg-clip-text">
+              Please register
+            </h2>
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">
@@ -305,7 +309,7 @@ const Register = () => {
               </div>
               <div className="form-control mt-6">
                 <input
-                  className="btn bg-gradient-to-r from-green-700 via-lime-700 to-red-600"
+                  className="btn bg-gradient-to-r from-green-700 via-lime-700 to-red-600 text-white"
                   type="submit"
                   value="REGISTER"
                 />

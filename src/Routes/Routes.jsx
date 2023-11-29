@@ -19,6 +19,7 @@ import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import DonationCampaigns from "../pages/DonationCampaigns/DonationCampaigns";
 import MyCreatedDonationCampaigns from "../pages/Dashboard/MyDonationCampaigns/MyCreatedDonationCampaigns";
 import DonationDetails from "../pages/DonationDetails/DonationDetails";
+import AllDonationsByAdmin from "../pages/Dashboard/AllDonationsByAdmin/AllDonationsByAdmin";
 // import PrivateRoute from "./PrivateRoute";
 const routes = createBrowserRouter([
   {
@@ -96,6 +97,14 @@ const routes = createBrowserRouter([
         element: (
           <AdminRoute>
             <AllPetsByAdmin></AllPetsByAdmin>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "allDonationsByAdmin",
+        element: (
+          <AdminRoute>
+            <AllDonationsByAdmin></AllDonationsByAdmin>
           </AdminRoute>
         ),
       },

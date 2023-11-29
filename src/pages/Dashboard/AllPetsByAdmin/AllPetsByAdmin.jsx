@@ -14,7 +14,7 @@ const AllPetsByAdmin = () => {
   return (
     <div>
       <div className="flex justify-evenly my-4 pt-20">
-        <h2 className="text-3xl">Your Added Pets List</h2>
+        <h2 className="text-3xl">All Pets List</h2>
         <h2 className="text-3xl">Total Pets: {pets.length}</h2>
       </div>
       <div className="overflow-x-auto">
@@ -22,10 +22,10 @@ const AllPetsByAdmin = () => {
           {/* head */}
           <thead>
             <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Role</th>
+              <th>Serial</th>
+              <th>Pet Name</th>
+              <th>Pet Age</th>
+              <th>Pet Location</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -33,10 +33,16 @@ const AllPetsByAdmin = () => {
             {pets.map((pet, index) => (
               <tr key={pet._id}>
                 <th>{index + 1}</th>
-                <td>Ka</td>
-                <td>Kha</td>
-                <td>Hmm</td>
-                <td>Jaa</td>
+                <td>{pet.name}</td>
+                <td>{pet.age}</td>
+                <td>{pet.location}</td>
+                <td>
+                  <div className="flex flex-col space-y-2">
+                    <button className="btn btn-outline">Edit</button>
+                    <button className="btn btn-primary">Delete</button>
+                    <button className="btn btn-danger">Adoption Status</button>
+                  </div>
+                </td>
               </tr>
             ))}
           </tbody>

@@ -24,21 +24,27 @@ const MyCreatedDonationCampaigns = () => {
           {/* head */}
           <thead>
             <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Role</th>
+              <th>Serial</th>
+              <th>Pet Name</th>
+              <th>Maximum Donatio Amount</th>
+              <th>Donation Progress Bar</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            {myCreatedCampaigns.map((Campaign, index) => (
-              <tr key={Campaign._id}>
+            {myCreatedCampaigns.map((campaign, index) => (
+              <tr key={campaign._id}>
                 <th>{index + 1}</th>
-                <td>Ka</td>
-                <td>Kha</td>
+                <td>{campaign.petName}</td>
+                <td>{campaign.maxAmount} $ </td>
                 <td>Hmm</td>
-                <td>Jaa</td>
+                <td>
+                  <div className="flex flex-col space-y-2">
+                    <button className="btn btn-outline">Pause</button>
+                    <button className="btn btn-secondary">Edit</button>
+                    <button className="btn btn-accent">View Donators</button>
+                  </div>
+                </td>
               </tr>
             ))}
           </tbody>

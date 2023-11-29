@@ -32,6 +32,7 @@ const AllUsers = () => {
       }
     });
   };
+  console.log(users);
   const handleDeleteUser = (user) => {
     Swal.fire({
       title: "Are you sure?",
@@ -67,7 +68,8 @@ const AllUsers = () => {
           {/* head */}
           <thead>
             <tr>
-              <th></th>
+              <th>Orders</th>
+              <th>Profile Image</th>
               <th>Name</th>
               <th>Email</th>
               <th>Role</th>
@@ -78,6 +80,11 @@ const AllUsers = () => {
             {users.map((user, index) => (
               <tr key={user._id}>
                 <th>{index + 1}</th>
+                <th>
+                  <div>
+                    <img className="w-8 h-8 rounded-full" src={user.photoURL} />
+                  </div>
+                </th>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td>
@@ -86,7 +93,7 @@ const AllUsers = () => {
                   ) : (
                     <button
                       onClick={() => handleMakeAdmin(user)}
-                      className="btn btn-lg bg-orange-500"
+                      className="btn btn-sm bg-blue-800"
                     >
                       <FaUsers
                         className="text-white 
