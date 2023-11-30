@@ -1,13 +1,14 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../../../public/Resources/pet.png";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { SlMenu } from "react-icons/sl";
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
-
+  const navigate = useNavigate();
   const handleLogOut = () => {
     logOut();
+    navigate("/");
   };
   const links = (
     <>

@@ -159,7 +159,7 @@
 // };
 
 // export default Login;
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaGithub } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -167,9 +167,10 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
 import loginImg from "../../../public/Resources/login.png";
 import { FcGoogle } from "react-icons/fc";
+import { toast } from "react-toastify";
 
 const Login = () => {
-  const { signIn, loginGoogle } = useContext(AuthContext);
+  const { signIn, loginGoogle, loginGithub } = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
@@ -211,19 +212,33 @@ const Login = () => {
         name: loggedInUser.displayName,
         email: loggedInUser.email,
       };
-      fetch("http://localhost:5000/users", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(saveUser),
-      })
+      fetch(
+        // "http://localhost:5000/users"
+        "https://pawspalace-pet-adoption-server.vercel.app/users",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(saveUser),
+        }
+      )
         .then((res) => res.json())
         .then(() => {
           navigate(from, { replace: true });
         });
     });
   };
+
+  const handleGithubLogin = () =>
+    loginGithub()
+      .then((res) => {
+        console.log(res.user);
+        toast("You Are Successfuly Logged In");
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((err) => console.log(err));
+
   const handlePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -248,6 +263,15 @@ const Login = () => {
               >
                 <FcGoogle></FcGoogle>
                 <span className="hover:text-blue-500">Google</span>
+              </button>
+            </div>
+            <div className="mx-auto font-semibold text-center w-full rounded-lg">
+              <button
+                onClick={handleGithubLogin}
+                className="p-3 border font-bold w-full rounded-lg border-black flex justify-center items-center gap-3"
+              >
+                <FaGithub></FaGithub>
+                <span className="hover:text-blue-800">Github</span>
               </button>
             </div>
             <h2 className="bg-gradient-to-r from-blue-700 via-blue-600 to-purple-700 text-transparent bg-clip-text text-center  py-2 my-3 border-b border-t">
