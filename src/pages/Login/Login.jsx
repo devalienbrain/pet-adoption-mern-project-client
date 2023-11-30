@@ -232,7 +232,7 @@ const Login = () => {
       <Helmet>
         <title>PawsPalace Pet Place | Login</title>
       </Helmet>
-      <div className="hero flex min-h-screen">
+      <div className="hero flex flex-col lg:flex-row min-h-screen">
         <div className="hero-content p-16 flex-1 flex-col md:flex-row-reverse">
           <img className="" src={loginImg} alt="Login" />
         </div>
