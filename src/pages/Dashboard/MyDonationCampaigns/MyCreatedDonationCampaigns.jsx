@@ -5,7 +5,10 @@ const MyCreatedDonationCampaigns = () => {
   const { user } = useAuth();
   const [myCreatedCampaigns, setMyCreatedCampaigns] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/donation?email=${user?.email}`)
+    fetch(
+      // `http://localhost:5000/donation?email=${user?.email}`
+      `https://pawspalace-pet-adoption-server.vercel.app/donation?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setMyCreatedCampaigns(data);

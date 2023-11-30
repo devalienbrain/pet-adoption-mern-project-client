@@ -1,8 +1,6 @@
 import {
   FaAd,
-  FaBook,
   FaCalendar,
-  FaEnvelope,
   FaHome,
   FaList,
   FaSearch,

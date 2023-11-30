@@ -5,7 +5,10 @@ import { Helmet } from "react-helmet-async";
 const DonationCampaigns = () => {
   const [campaigns, setCampaigns] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/donation")
+    fetch(
+      // "http://localhost:5000/donation"
+      "https://pawspalace-pet-adoption-server.vercel.app/donation"
+    )
       .then((res) => res.json())
       .then((data) => {
         setCampaigns(data);

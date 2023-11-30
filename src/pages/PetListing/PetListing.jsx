@@ -108,7 +108,10 @@ import { Helmet } from "react-helmet-async";
 const AllPets = () => {
   const [pets, setPets] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/allPets")
+    fetch(
+      // "http://localhost:5000/allPets"
+      "https://pawspalace-pet-adoption-server.vercel.app/allPets"
+    )
       .then((res) => res.json())
       .then((data) => {
         setPets(data);

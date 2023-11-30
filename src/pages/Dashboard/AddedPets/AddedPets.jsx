@@ -5,7 +5,10 @@ const AddedPets = () => {
   const { user } = useAuth();
   const [addedPets, setAddedPets] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/allPets?email=${user?.email}`)
+    fetch(
+      // `http://localhost:5000/allPets?email=${user?.email}`
+      `https://pawspalace-pet-adoption-server.vercel.app/allPets?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setAddedPets(data);
@@ -42,7 +45,7 @@ const AddedPets = () => {
                     src={addedPet.image}
                   />
                 </td>
-                <td>Jaa Dusto</td>
+                <td>Loading</td>
                 <td>
                   <div className="flex flex-col space-y-2">
                     <button className="btn btn-outline">Update</button>

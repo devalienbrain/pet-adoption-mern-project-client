@@ -4,7 +4,10 @@ import CategoryCard from "./CategoryCard";
 const Categories = () => {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/petCategories")
+    fetch(
+      // "http://localhost:5000/petCategories"
+      "https://pawspalace-pet-adoption-server.vercel.app/petCategories"
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);

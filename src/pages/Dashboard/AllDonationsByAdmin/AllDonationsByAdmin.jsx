@@ -3,7 +3,10 @@ import { useEffect, useState } from "react";
 const AllDonationsByAdmin = () => {
   const [donations, setDonations] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/donation")
+    fetch(
+      // "http://localhost:5000/donation"
+      "https://pawspalace-pet-adoption-server.vercel.app/donation"
+    )
       .then((res) => res.json())
       .then((data) => {
         setDonations(data);

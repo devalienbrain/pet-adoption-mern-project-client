@@ -42,7 +42,11 @@ const routes = createBrowserRouter([
       {
         path: "/allpets",
         element: <AllPets></AllPets>,
-        loader: () => fetch("http://localhost:5000/petsCount"),
+        loader: () =>
+          fetch(
+            // "http://localhost:5000/petsCount"
+            "https://pawspalace-pet-adoption-server.vercel.app/petsCount"
+          ),
       },
       {
         path: "/details/:id",
@@ -51,7 +55,11 @@ const routes = createBrowserRouter([
             <PetDetails></PetDetails>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/allPets"),
+        loader: () =>
+          fetch(
+            // "http://localhost:5000/allPets"
+            "https://pawspalace-pet-adoption-server.vercel.app/allPets"
+          ),
       },
       {
         path: "/donationCampaigns",
@@ -64,7 +72,11 @@ const routes = createBrowserRouter([
             <DonationDetails></DonationDetails>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/donation"),
+        loader: () =>
+          fetch(
+            // "http://localhost:5000/donation"
+            "https://pawspalace-pet-adoption-server.vercel.app/donation"
+          ),
       },
     ],
   },

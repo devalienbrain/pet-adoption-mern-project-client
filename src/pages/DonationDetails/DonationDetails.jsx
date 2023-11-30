@@ -1,4 +1,4 @@
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -50,13 +50,17 @@ const DonationDetails = () => {
     };
     console.log(petAdoptInfo);
     // Info send to db
-    fetch("http://localhost:5000/adoptedPets", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(petAdoptInfo),
-    })
+    fetch(
+      // "http://localhost:5000/adoptedPets"
+      "https://pawspalace-pet-adoption-server.vercel.app/adoptedPets",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(petAdoptInfo),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
