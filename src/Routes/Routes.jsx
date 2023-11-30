@@ -20,6 +20,7 @@ import DonationCampaigns from "../pages/DonationCampaigns/DonationCampaigns";
 import MyCreatedDonationCampaigns from "../pages/Dashboard/MyDonationCampaigns/MyCreatedDonationCampaigns";
 import DonationDetails from "../pages/DonationDetails/DonationDetails";
 import AllDonationsByAdmin from "../pages/Dashboard/AllDonationsByAdmin/AllDonationsByAdmin";
+import UpdatePet from "../pages/Dashboard/UpdatePet/UpdatePet";
 // import PrivateRoute from "./PrivateRoute";
 const routes = createBrowserRouter([
   {
@@ -143,6 +144,18 @@ const routes = createBrowserRouter([
             <AddedPets></AddedPets>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "updatePet/:id",
+        element: (
+          <AdminRoute>
+            <UpdatePet></UpdatePet>
+          </AdminRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://pawspalace-pet-adoption-server.vercel.app/addedPets/${params.id}`
+          ),
       },
       {
         path: "createDonation",
