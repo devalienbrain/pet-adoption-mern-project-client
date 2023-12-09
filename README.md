@@ -1,5 +1,10 @@
 # PawsPalace - Pet Adoption (Simple MERN) Project Features
 
+(Live site link: https://pawspalace-pet-adoption.web.app/)
+Admin email: panda@thegreat.com
+Admin password: Aa123456*
+Server Side Github Repository Link: https://github.com/devalienbrain/Pet-Adoption-MERN-Project-Server
+
 Key features of this MERN (MongoDB, Express.js, React.js, Node.js) project for pet adoption named "PawsPalace." This project integrates Firebase for authentication, MongoDB for CRUD operations, React.js for the frontend, and includes Stripe for payment options:
 
 - User Authentication with Firebase: Allow users to register and log in using Firebase Authentication. Implement secure authentication methods such as email/password and social media login options.
