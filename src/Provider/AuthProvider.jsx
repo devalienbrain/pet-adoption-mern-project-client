@@ -11,7 +11,7 @@ import {
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import app from "../../public/firebase/firebase.config";
-import axios from "axios";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 export const AuthContext = createContext(null);
 
@@ -19,7 +19,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const axiosPublic = useAxiosPublic();
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
@@ -53,25 +53,25 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log("Current Active USER:", currentUser);
-      setUser(currentUser);
+    const unSubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      try {
+        console.log("Current Active USER:", currentUser);
+        setUser(currentUser);
 
-      // get and set token
-      if (currentUser) {
-        axios
-          .post(
-            // "http://localhost:5000/jwt"
-            "https://pawspalace-pet-adoption-server.vercel.app/jwt",
-            { email: currentUser.email }
-          )
-          .then((res) => {
-            console.log(res.data.token);
-            localStorage.setItem("access-token", res.data.token);
-            setLoading(false);
+        // get and set token
+        if (currentUser) {
+          const response = await axiosPublic.post("/jwt", {
+            email: currentUser.email,
           });
-      } else {
-        localStorage.removeItem("access-token");
+          console.log(response.data.token);
+          localStorage.setItem("access-token", response.data.token);
+        } else {
+          localStorage.removeItem("access-token");
+        }
+      } catch (error) {
+        console.error("Error in AuthProvider useEffect:", error);
+      } finally {
+        setLoading(false);
       }
     });
 

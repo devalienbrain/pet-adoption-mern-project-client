@@ -14,12 +14,12 @@ const Home = () => {
         <title>PawsPalace Pet Place | Home</title>
       </Helmet>
       <Banner></Banner>
+      <Categories></Categories>
       <JoinWithUs></JoinWithUs>
+      <DonateMonthly></DonateMonthly>
+      <CallToAction></CallToAction>
       <PetGroup></PetGroup>
       <AboutUs></AboutUs>
-      <Categories></Categories>
-      <CallToAction></CallToAction>
-      <DonateMonthly></DonateMonthly>
     </div>
   );
 };

@@ -7,17 +7,16 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 const AddedPets = () => {
   const { user } = useAuth();
   const [addedPets, setAddedPets] = useState([]);
+
   const axiosSecure = useAxiosSecure();
+  const fetchData = async () => {
+    const pets = await axiosSecure.get(`/allPets?email=${user?.email}`);
+    setAddedPets(pets.data);
+  };
+
   useEffect(() => {
-    fetch(
-      // `http://localhost:5000/allPets?email=${user?.email}`
-      `https://pawspalace-pet-adoption-server.vercel.app/allPets?email=${user?.email}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setAddedPets(data);
-      });
-  }, [user?.email]);
+    fetchData();
+  }, []);
 
   const handleDeletePet = (pet) => {
     Swal.fire({

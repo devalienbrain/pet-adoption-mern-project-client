@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const AllPetsByAdmin = () => {
   const [pets, setPets] = useState([]);
+  const axiosSecure = useAxiosSecure();
   useEffect(() => {
-    fetch(
-      // "http://localhost:5000/allPets"
-      "https://pawspalace-pet-adoption-server.vercel.app/allPets"
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setPets(data);
-        // console.log(pets);
-      });
+    const fetch = async () => {
+      try {
+        const response = await axiosSecure.get("/allPets");
+        setPets(response.data);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
+    fetch();
   }, []);
 
   return (

@@ -21,6 +21,8 @@ import MyCreatedDonationCampaigns from "../pages/Dashboard/MyDonationCampaigns/M
 import DonationDetails from "../pages/DonationDetails/DonationDetails";
 import AllDonationsByAdmin from "../pages/Dashboard/AllDonationsByAdmin/AllDonationsByAdmin";
 import UpdatePet from "../pages/Dashboard/UpdatePet/UpdatePet";
+import Payment from "../pages/Payment/Payment";
+import MyCreatedAdoptionRequest from "../pages/Dashboard/AdoptionRequest/AdoptionRequest";
 // import PrivateRoute from "./PrivateRoute";
 const routes = createBrowserRouter([
   {
@@ -43,11 +45,6 @@ const routes = createBrowserRouter([
       {
         path: "/allpets",
         element: <AllPets></AllPets>,
-        loader: () =>
-          fetch(
-            // "http://localhost:5000/petsCount"
-            "https://pawspalace-pet-adoption-server.vercel.app/petsCount"
-          ),
       },
       {
         path: "/details/:id",
@@ -58,8 +55,8 @@ const routes = createBrowserRouter([
         ),
         loader: () =>
           fetch(
-            // "http://localhost:5000/allPets"
-            "https://pawspalace-pet-adoption-server.vercel.app/allPets"
+            "http://localhost:5000/allPets"
+            // "https://pawspalace-pet-adoption-server.vercel.app/allPets"
           ),
       },
       {
@@ -75,9 +72,13 @@ const routes = createBrowserRouter([
         ),
         loader: () =>
           fetch(
-            // "http://localhost:5000/donation"
-            "https://pawspalace-pet-adoption-server.vercel.app/donation"
+            "http://localhost:5000/donation"
+            // "https://pawspalace-pet-adoption-server.vercel.app/donation"
           ),
+      },
+      {
+        path: "/payment",
+        element: <Payment></Payment>,
       },
     ],
   },
@@ -154,7 +155,8 @@ const routes = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://pawspalace-pet-adoption-server.vercel.app/addedPets/${params.id}`
+            `http://localhost:5000/addedPets/${params.id}`
+            // `https://pawspalace-pet-adoption-server.vercel.app/addedPets/${params.id}`
           ),
       },
       {
@@ -170,6 +172,14 @@ const routes = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyCreatedDonationCampaigns></MyCreatedDonationCampaigns>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "adoptionRequest",
+        element: (
+          <PrivateRoute>
+            <MyCreatedAdoptionRequest></MyCreatedAdoptionRequest>
           </PrivateRoute>
         ),
       },

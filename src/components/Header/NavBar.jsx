@@ -90,14 +90,15 @@ const Header = () => {
           </ul>
         </div>
         {/* DROPDOWN HAMBURGER MENU FOR MOBILE RESPONSIVE ENDS */}
-        <div className="md:pl-5 flex items-center">
+        <div className="md:pl-5 flex items-center gap-2">
           <img className="w-8" src={logo} />
-          <h1 className="text-lg font-black bg-gradient-to-r from-blue-700 via-purple-600 to-red-500 bg-clip-text text-transparent">
-            PAWSPALACE
+          <h1 className="text-xl font-black">
+            <span className="text-2xl">P</span>AWS
+            <span className="text-2xl">P</span>ALACE
           </h1>
         </div>
       </div>
-      <div className="hidden md:flex col-span-2  justify-center items-center gap-3 text-sm">
+      <div className="hidden md:flex col-span-2  justify-center items-center gap-3 text-base font-semibold">
         {links}
       </div>
       <div className="flex gap-4 justify-end items-center">

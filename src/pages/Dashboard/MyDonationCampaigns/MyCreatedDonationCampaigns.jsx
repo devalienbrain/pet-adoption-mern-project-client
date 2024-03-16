@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const MyCreatedDonationCampaigns = () => {
   const { user } = useAuth();
   const [myCreatedCampaigns, setMyCreatedCampaigns] = useState([]);
+  const axiosSecure = useAxiosSecure();
+  const fetchData = async () => {
+    const campaigns = await axiosSecure.get(`/donation?email=${user?.email}`);
+    setMyCreatedCampaigns(campaigns.data);
+  };
   useEffect(() => {
-    fetch(
-      // `http://localhost:5000/donation?email=${user?.email}`
-      `https://pawspalace-pet-adoption-server.vercel.app/donation?email=${user?.email}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setMyCreatedCampaigns(data);
-      });
-  }, [user?.email]);
+    fetchData();
+  }, []);
+
   return (
     <div>
       <div className="flex justify-evenly my-4 pt-20">

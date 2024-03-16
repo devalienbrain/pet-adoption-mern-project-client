@@ -81,7 +81,7 @@ const Dashboard = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/dashboard/reservation">
+              <NavLink to="/dashboard/adoptionRequest">
                 <FaUtensils></FaUtensils>
                 <p className="hover:underline">Adoption Request</p>
               </NavLink>

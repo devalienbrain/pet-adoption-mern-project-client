@@ -1,18 +1,17 @@
 import { useEffect, useState } from "react";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const AllDonationsByAdmin = () => {
   const [donations, setDonations] = useState([]);
+
+  const axiosSecure = useAxiosSecure();
+  const fetchData = async () => {
+    const donations = await axiosSecure.get("/donation");
+    setDonations(donations.data);
+  };
   useEffect(() => {
-    fetch(
-      // "http://localhost:5000/donation"
-      "https://pawspalace-pet-adoption-server.vercel.app/donation"
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setDonations(data);
-        console.log(donations);
-      });
-  }, [donations]);
+    fetchData();
+  }, []);
 
   return (
     <div>

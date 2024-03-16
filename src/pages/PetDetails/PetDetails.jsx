@@ -1,7 +1,8 @@
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const PetDetails = () => {
   const { user } = useContext(AuthContext);
@@ -12,7 +13,7 @@ const PetDetails = () => {
   // console.log(targetedPet);
   const { name, image, age, location, category, longDescription, _id } =
     targetedPet || {};
-
+  const axiosSecure = useAxiosSecure();
   // Handle the modal
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => {
@@ -24,7 +25,7 @@ const PetDetails = () => {
 
   // HANDLE ADOPT BTN CLICKED
   const [adoptedPets, setAdoptedPets] = useState([]);
-  const handlePetAdoption = (e) => {
+  const handlePetAdoption = async (e) => {
     e.preventDefault();
     const form = e.target;
     const userName = form.name.value;
@@ -41,42 +42,52 @@ const PetDetails = () => {
       phoneNumber,
       address,
     };
-    console.log(petAdoptInfo);
-    // Info send to db
-    fetch(
-      // "http://localhost:5000/adoptedPets"
-      "https://pawspalace-pet-adoption-server.vercel.app/adoptedPets",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(petAdoptInfo),
+
+    try {
+      // Use await with axios.post to wait for the response
+      const adoptedData = await axiosSecure.post("/adoptedPets", petAdoptInfo);
+
+      console.log(adoptedData.data);
+
+      if (adoptedData.data.insertedId) {
+        Swal.fire({
+          title: "Congrats!",
+          text: "You have adopted the pet Successfully",
+          icon: "success",
+          confirmButtonText: "Close",
+        });
       }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.insertedId) {
-          Swal.fire({
-            title: "Congrats!",
-            text: "You have adopted the pet Successfully",
-            icon: "success",
-            confirmButtonText: "Close",
-          });
-        }
+
+      const response = await axiosSecure.patch(`/allPets/${id}`, {
+        adopted: true,
+        reqPersonName: userName,
+        reqPersonAddress: address,
+        reqPersonEmail: userEmail,
+        reqPersonPhone: phoneNumber,
       });
-    setIsModalOpen(false);
+
+      setIsModalOpen(false);
+    } catch (error) {
+      console.error("Error adopting pet:", error);
+
+      // Handle errors if needed, show an error message, etc.
+      Swal.fire({
+        title: "Error",
+        text: "An error occurred while processing your request. Please try again.",
+        icon: "error",
+        confirmButtonText: "Close",
+      });
+    }
   };
 
   return (
     <div className="container mx-auto min-h-screen flex justify-center items-center align-middle">
       <div className="p-10 rounded">
         <div className="card lg:card-side bg-base-100 shadow-lg">
-          <figure>
+          <figure className="w-full lg:w-1/2">
             <img src={image} alt="book" />
           </figure>
-          <div className="card-body text-left italic">
+          <div className="w-full lg:w-1/2 card-body text-left italic">
             <h2 className="card-title">Pet name: {name}</h2>
             <h2 className="card-title">Category: {category}</h2>
             <h2 className="card-title">Pet Age: {age}</h2>
