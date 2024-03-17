@@ -23,9 +23,7 @@ const Categories = () => {
 
   return (
     <div className="text-center my-20">
-      <h1 className="my-5 text-3xl md:text-4xl bg-gradient-to-r from-blue-700 via-purple-700 to-red-600  bg-clip-text text-transparent font-bold">
-        PET CATEGORIES
-      </h1>
+      <h1 className="my-5 text-4xl md:text-6xl font-black">PET CATEGORIES</h1>
       {error && <p className="text-red-500">{error}</p>}
       <div className="py-9 grid grid-cols-1 md:grid-cols-4 lg:grid-cols-7 gap-10">
         {categories.map((category) => (

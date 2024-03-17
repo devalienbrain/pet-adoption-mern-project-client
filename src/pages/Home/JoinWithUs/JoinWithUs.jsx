@@ -8,7 +8,7 @@ const JoinWithUs = () => {
         </div>
         <div className="flex-1 flex justify-center items-center p-5">
           <div className="text-center">
-            <h1 className="mb-5 text-2xl md:text-5xl bg-gradient-to-r from-red-700 via-blue-600 to-purple-700 bg-clip-text text-transparent font-bold">
+            <h1 className="mb-5 text-3xl md:text-5xl bg-gradient-to-r from-red-700 via-blue-600 to-purple-700 bg-clip-text text-transparent font-black">
               BECOME A HUMAN HERO
             </h1>
             <span className="text-xs md:text-sm">

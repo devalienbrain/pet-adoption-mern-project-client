@@ -2,7 +2,7 @@ const AboutUs = () => {
   return (
     <div className="flex justify-center items-center p-20 border rounded-md bg-blue-50 text-slate-800">
       <div className="text-left">
-        <h1 className="font-black text-2xl">ABOUT US</h1>
+        <h1 className="font-black text-4xl">ABOUT US</h1>
         <p>
           Welcome to our Pet Adoption Hub, where love finds its forever home!
           Our website is a virtual haven for connecting compassionate

@@ -3,6 +3,7 @@ import logo from "../../../public/Resources/pet.png";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { SlMenu } from "react-icons/sl";
+import useTheme from "../../hooks/useTheme";
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -41,7 +42,8 @@ const Header = () => {
     </>
   );
 
-  const [theme, setTheme] = useState("dark");
+  // THEME TOGGLE CODE STARTS
+  const { theme, setTheme } = useTheme();
 
   const toggleTheme = () => {
     const html = document.documentElement;
@@ -69,6 +71,7 @@ const Header = () => {
     html.classList.add(localStorageTheme);
     // console.log("Local Storage Theme:", localStorageTheme);
   }, []);
+  // THEME TOGGLE CODE ENDS
 
   return (
     <div

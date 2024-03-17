@@ -18,7 +18,7 @@ const CallToAction = () => {
         </div>
         <div className="flex-1 flex justify-center items-center p-5">
           <div className="text-left flex flex-col space-y-2">
-            <h1 className="mb-5 text-xl md:text-3xl font-bold">
+            <h1 className="mb-5 text-xl md:text-3xl font-black">
               Unlocking Hearts and Changing Lives: The Pawsome Power of Pet
               Adoption!
             </h1>
