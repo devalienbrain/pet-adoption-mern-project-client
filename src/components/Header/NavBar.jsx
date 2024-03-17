@@ -118,21 +118,13 @@ const Header = () => {
               >
                 <div className="p-5 text-left flex flex-col space-y-3">
                   <p>{user?.displayName}</p>
-                  {isAdmin ? (
-                    <Link
-                      className="font-black hover:underline"
-                      to="/dashboard/userHome"
-                    >
-                      Dashboard
-                    </Link>
-                  ) : (
-                    <Link
-                      className="font-black hover:underline"
-                      to="/dashboard/adminHome"
-                    >
-                      Dashboard
-                    </Link>
-                  )}
+                  <Link
+                    className="font-black hover:underline"
+                    to="/dashboard/profile"
+                  >
+                    Dashboard
+                  </Link>
+
                   <p
                     className="text-red-600 hover:underline hover:text-red-500 font-bold"
                     onClick={handleLogOut}

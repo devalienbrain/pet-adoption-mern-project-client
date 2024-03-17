@@ -23,6 +23,7 @@ import AllDonationsByAdmin from "../pages/Dashboard/AllDonationsByAdmin/AllDonat
 import UpdatePet from "../pages/Dashboard/UpdatePet/UpdatePet";
 import Payment from "../pages/Payment/Payment";
 import MyCreatedAdoptionRequest from "../pages/Dashboard/AdoptionRequest/AdoptionRequest";
+import Profile from "../pages/Dashboard/Profile/Profile";
 // import PrivateRoute from "./PrivateRoute";
 const routes = createBrowserRouter([
   {
@@ -90,6 +91,14 @@ const routes = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
+      {
+        path: "profile",
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
+          </PrivateRoute>
+        ),
+      },
       {
         path: "adminHome",
         element: (
