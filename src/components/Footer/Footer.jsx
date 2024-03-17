@@ -9,10 +9,10 @@ const Footer = () => {
         theme === "light" ? "bg-white" : "bg-slate-950"
       } z-50 mt-10`}
     >
-      <footer className="pt-10">
+      <footer className="pt-10 text-white">
         <div className="grid grid-cols-1 md:grid-cols-4 p-10 container mx-auto">
           <div className="flex flex-col text-left space-y-2">
-            <h3 className="font-bold text-xl">PawsPalace</h3>
+            <h3 className="font-black text-xl">PawsPalace</h3>
             <p className="text-sm">Online pet adoptation shop</p>
             <p className="text-xs">Your trusted place</p>
             <p className="flex flex-col space-y-1 text-left text-xs">
@@ -21,21 +21,21 @@ const Footer = () => {
             </p>
           </div>
           <nav className="text-left flex flex-col">
-            <header className="font-bold">Services</header>
+            <header className="font-black">Services</header>
             <a className="underline">Branding</a>
             <a className="underline">Design</a>
             <a className="underline">Marketing</a>
             <a className="underline">Advertisement</a>
           </nav>
           <nav className="text-left flex flex-col">
-            <header className="font-bold">Company</header>
+            <header className="font-black">Company</header>
             <a>About us</a>
             <a>Contact</a>
             <a>Jobs</a>
             <a>Press kit</a>
           </nav>
           <nav className="text-left flex flex-col gap-1">
-            <header className="font-semibold">Social links</header>
+            <header className="font-black">Social links</header>
             <a>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +71,7 @@ const Footer = () => {
             </a>
           </nav>
         </div>
-        <div className="border-t container mx-auto text-center flex justify-center text-xs py-9">
+        <div className="border-t container mx-auto text-center flex justify-center text-sm py-9">
           <small>
             copyright@2024 || All rights preserved by Dr-FatihaSuu || In
             support: devAlienBrain Coder

@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { SlMenu } from "react-icons/sl";
 import useTheme from "../../hooks/useTheme";
+import useAdmin from "../../hooks/useAdmin";
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -72,7 +73,7 @@ const Header = () => {
     // console.log("Local Storage Theme:", localStorageTheme);
   }, []);
   // THEME TOGGLE CODE ENDS
-
+  const [isAdmin] = useAdmin();
   return (
     <div
       className={` ${
@@ -106,21 +107,36 @@ const Header = () => {
       </div>
       <div className="flex gap-4 justify-end items-center">
         {user ? (
-          <div className="justify-end flex items-center gap-2">
-            <div className="dropdown">
+          <div className="justify-end flex items-center gap-2 shadow-2xl">
+            <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost ">
                 <img className="w-8 h-8 rounded-full" src={user?.photoURL} />
               </label>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box"
+                className="menu menu-sm mr-4 dropdown-content mt-3 z-20 p-2 shadow rounded-box w-20"
               >
-                <div className="p-3 text-left flex flex-col space-y-3">
-                  <p className="text-lime-600">{user?.displayName}</p>
-                  <Link className="text-blue-600" to="/dashboard">
-                    Dashboard
-                  </Link>
-                  <p className="text-red-600" onClick={handleLogOut}>
+                <div className="p-5 text-left flex flex-col space-y-3">
+                  <p>{user?.displayName}</p>
+                  {isAdmin ? (
+                    <Link
+                      className="font-black hover:underline"
+                      to="/dashboard/userHome"
+                    >
+                      Dashboard
+                    </Link>
+                  ) : (
+                    <Link
+                      className="font-black hover:underline"
+                      to="/dashboard/adminHome"
+                    >
+                      Dashboard
+                    </Link>
+                  )}
+                  <p
+                    className="text-red-600 hover:underline hover:text-red-500 font-bold"
+                    onClick={handleLogOut}
+                  >
                     Logout
                   </p>
                 </div>
